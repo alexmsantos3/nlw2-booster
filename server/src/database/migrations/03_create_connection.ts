@@ -16,7 +16,7 @@ export async function up(knex: Knex) {
       .onDelete('CASCADE');
     // Pegar o exato horario que tentou conexão com o professor.
     table.timestamp('created_at')
-      .defaultTo('now()')
+      .defaultTo(knex.raw('CURRENT_TIMESTAMP'))
       .notNullable();
   });
 }
