@@ -1,43 +1,9 @@
 import express from 'express';
+import routes from './routes';
 
 const app = express();
 
 app.use(express.json());
-
-// GET: Buscar ou listar uma informação
-// POST: Criar alguma nova informação
-// PUT: Atualizar uma informação existente
-// DELETE: Deletar uma informação existente "rota/:id"
-
-// Corpo (Request Body): Dados para a criação ou atualização de um registro
-// Route Params: Identificar qual recurso eu quero atualizar ou deletar
-// Query Params: Paginação, filtros, ordenação
-
-// ################ Exemplo de GET #####################
-app.get('/', (request, response) => {
-  return response.json({ message: 'Hello World!' });
-} );
-
-// ################ Exemplo de POST #####################
-// app.post('/users', (request, response) => {
-//   console.log(request.body);
-//   const users = [
-//     {nome: 'Alex', age: 25},
-//     {nome: 'Jennifer', age: 23}
-//   ]; 
-
-//   return response.json(users);
-// } );
-
-// ################ Exemplo de DELETE #####################
-// app.delete('/users/:id', (request, response) => {
-//   console.log(request.body);
-//   const users = [
-//     {id: 1, nome: 'Alex', age: 25},
-//     {id: 2, nome: 'Jennifer', age: 23}
-//   ]; 
-
-//   return response.json(users);
-// } );
+app.use(routes);
 
 app.listen(3333);
